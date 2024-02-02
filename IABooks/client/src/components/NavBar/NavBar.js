@@ -12,23 +12,23 @@ const NavBar = observer(() => {
   const { user } = useContext(Context);
 
   return (
-    <div class="top-0 z-50 bg-white bg-opacity-500  rounded-2xl w-5/6 mx-auto shadow-xl">
-      <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
-        <div class="flex flex-row gap-4 items-center mx-auto">
+    <div className="top-0 z-50 bg-white bg-opacity-500  rounded-2xl w-5/6 mx-auto shadow-xl">
+      <div className="max-w-screen-xl flex flex-wrap items-center mx-auto p-2">
+        <div className="flex flex-row gap-4 items-center justify-start mx-auto">
           <img
             src={logo}
             alt="logoimage"
-            class="w-14 hover:-translate-y-1  hover:rotate-6 transition"
+            className="w-14 hover:-translate-y-1  hover:rotate-6 transition cursor-pointer"
           />
           <a
-            class="text-2xl font-semibold hover:no-underline text-blue-400 hover:text-violet-600 hover:-translate-y-1 transition"
+            className="text-2xl font-semibold hover:no-underline text-blue-400 hover:text-violet-600 hover:-translate-y-1 transition"
             href={CINEMA_ROUTE}
           >
             Книжный магазин
           </a>
         </div>
-        <div class="w-full md:block md:w-auto" id="navbar-default">
-          <ul class="font-medium flex flex-col p-4">
+        <div className="w-full md:block md:w-auto" id="navbar-default">
+          <ul className="font-medium flex flex-col p-4 cursor-pointer">
             {user.isAuth ? <TrueAuth /> : <FalseAuth />}
           </ul>
         </div>

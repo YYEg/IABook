@@ -1,39 +1,49 @@
-import React, {useContext} from 'react';
-import {observer} from "mobx-react-lite";
-import {Context} from "../index";
-import {ListGroup} from "react-bootstrap";
+import React, { useContext } from "react";
+import { observer } from "mobx-react-lite";
+import { Context } from "../index";
+import { Dropdown } from "react-bootstrap";
 
 const GenreBar = observer(() => {
-    const {film} = useContext(Context);
+  const { film } = useContext(Context);
 
-    const getAllFilms = () => {
-        film.setSelectedGenre("all");
-        film.setSelectedMoviemaker("all");
-    }
+  const getAllFilms = () => {
+    film.setSelectedGenre("all");
+    film.setSelectedMoviemaker("all");
+  };
 
-    return (
-        <ListGroup className="list-group-item-warning list-group-item-action">
-            <ListGroup.Item
-                style={{cursor: "pointer", color: "black"}}
-                active={"all" === film.selectedGenre}
-                className="list-group-item-warning list-group-item-action"
-                onClick={getAllFilms}
+  return (
+    <div className="my-4 text-center border-b-2">
+      <h1 className="text-3xl font-bold text-blue-400 hover:text-violet-400 hover:-translate-y-1 transition mb-3">
+        Жанры
+      </h1>
+      <Dropdown className="mb-4 ">
+        <Dropdown.Toggle
+          id="dropdown-basic"
+          className="text-primary p-3 w-full bg-white rounded-lg text-xl text-blue-400 font-bold text-blue-400 hover:text-violet-400 hover:-translate-y-1 transition hover:border hover:border-violet-400 "
+        >
+          {film.selectedGenre === "all" ? "All" : film.selectedGenre.name}
+        </Dropdown.Toggle>
+
+        <Dropdown.Menu className="w-full">
+          <Dropdown.Item
+            className="p-3 bg-white rounded-lg text-xl text-blue-400 font-bold text-blue-400 hover:text-violet-400 hover:-translate-y-1 transition hover:border hover:border-violet-400 "
+            onClick={getAllFilms}
+          >
+            All
+          </Dropdown.Item>
+          {film.genres.map((genre) => (
+            <Dropdown.Item
+              className="p-3 bg-white rounded-lg text-xl text-blue-400 font-bold text-blue-400 hover:text-violet-400 hover:-translate-y-1 transition hover:border hover:border-violet-400 "
+              key={genre.id}
+              onClick={() => film.setSelectedGenre(genre)}
             >
-                All
-            </ListGroup.Item>
-            {film.genres.map(genre =>
-                <ListGroup.Item
-                    style={{cursor: "pointer", color: "black"}}
-                    className="list-group-item-warning list-group-item-action"
-                    active={genre.id === film.selectedGenre.id}
-                    key={genre.id}
-                    onClick={() => film.setSelectedGenre(genre)}
-                >
-                    {genre.name}
-                </ListGroup.Item>
-            )}
-        </ListGroup>
-    );
+              {genre.name}
+            </Dropdown.Item>
+          ))}
+        </Dropdown.Menu>
+      </Dropdown>
+    </div>
+  );
 });
 
 export default GenreBar;

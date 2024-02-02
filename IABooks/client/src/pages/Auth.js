@@ -1,12 +1,10 @@
 import React, { useContext, useState } from "react";
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
-import { Button, Card, Container, Form, Row } from "react-bootstrap";
 import { LOGIN_ROUTE, REGISTRATION_ROUTE, CINEMA_ROUTE } from "../utils/consts";
 import { login, registration } from "../http/userAPI";
 import { observer } from "mobx-react-lite";
 import { Context } from "../index";
-import blankheart from "../assets/blankHeart.png";
 
 const Auth = observer(() => {
   const { user } = useContext(Context);
@@ -74,6 +72,7 @@ const Auth = observer(() => {
                   type="button"
                   class="w-full py-4 bg-green-600 rounded-lg text-green-100 text-lg font-semibold hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-600 focus:shadow-lg hover:-translate-y-1 transition"
                   onClick={click}
+                  onSubmit={click}
                 >
                   <div class="flex flex-row items-center justify-center">
                     <div class="mr-2">
