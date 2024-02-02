@@ -12,20 +12,20 @@ const NavBar = observer(() => {
   const { user } = useContext(Context);
 
   return (
-    <div class="sticky top-0 z-50 bg-white bg-opacity-500  rounded-2xl w-5/6 mx-auto">
+    <div class="top-0 z-50 bg-white bg-opacity-500  rounded-2xl w-5/6 mx-auto shadow-xl">
       <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
         <div class="flex flex-row gap-4 items-center mx-auto">
           <img
             src={logo}
             alt="logoimage"
-            class="w-14 hover:w-16 hover:-translate-y-1 transition"
+            class="w-14 hover:-translate-y-1  hover:rotate-6 transition"
           />
-          <NavLink
-            class="text-2xl font-semibold hover:no-underline text-white hover:text-blue-400 hover:-translate-y-1 transition"
-            to={CINEMA_ROUTE}
+          <a
+            class="text-2xl font-semibold hover:no-underline text-blue-400 hover:text-violet-600 hover:-translate-y-1 transition"
+            href={CINEMA_ROUTE}
           >
-            Книжный полюс
-          </NavLink>
+            Книжный магазин
+          </a>
         </div>
         <div class="w-full md:block md:w-auto" id="navbar-default">
           <ul class="font-medium flex flex-col p-4">

@@ -54,7 +54,7 @@ const App = observer(() => {
 
   return (
     <BrowserRouter>
-      <div class="body h-screen">
+      <div class="body">
         <NavBar />
         <Container>
           <AppRouter />

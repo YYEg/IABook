@@ -18,13 +18,12 @@ const TrueAuth = () => {
 
   return (
     <div className="nav ml-auto color-white">
-      <button
+      <div
         onClick={() => logOut()}
-        className="color-white hover:color-blue transition border border-blue-500 hover:border-blue-700 text-blue-700 hover:text-white font-bold py-2 px-4 rounded no-underline hover:translate-x-1 hover:-translate-y-1"
+        className="transition border text-blue-400 hover:text-violet-600 font-bold py-2 px-4 rounded no-underline hover:-translate-y-1"
       >
         Выйти
-      </button>
-
+      </div>
       <AdminPanel />
     </div>
   );
